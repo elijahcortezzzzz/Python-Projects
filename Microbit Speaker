@@ -1,0 +1,4 @@
+Import code 
+
+tune = [‘c5:4’,’e:2’,’g’,’c6:4’]
+music.play(tune)
