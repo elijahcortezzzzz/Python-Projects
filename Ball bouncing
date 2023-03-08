@@ -1,0 +1,17 @@
+from microbit import *
+x = 0
+y = 2
+dir_x = 1
+dir_y = 1
+
+while True:
+    x = x + dir_x
+    y = y + dir_y
+    if x == 4 or x == 0:
+        dir_x = -dir_x
+    if y == 4 or y == 0:
+        dir_y = -dir_y
+        
+    display.set_pixel(x,y,9)
+    sleep(100)
+    display.set_pixel(x,y,0)
