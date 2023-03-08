@@ -1,0 +1,98 @@
+import simplegui
+import random
+
+# Create Global Variable
+global x
+global y 
+global y2
+global x2
+global i
+x = -200
+y = -1000
+y2 = 2000
+x2 = 2000
+guy = -3000
+i = 600
+g = 520
+
+def draw_handler(canvas):
+    global x
+    global y
+    global y2
+    global x2
+    global guy
+    global g
+    x = x + 5
+    y = y + 5
+    y2 = y2 - 5
+    x2 = x2 - 5
+    guy = guy + 5
+    # Draw Here!
+    for i in range(50):
+        xdot=random.randint(1, 600)
+        ydot=random.randint(1, 1445)
+        canvas.draw_line((xdot, ydot), (xdot, ydot+10),5, "red")
+    for i in range(50):
+        xdot=random.randint(1, 600)
+        ydot=random.randint(1, 1445)
+        canvas.draw_line((xdot, ydot), (xdot, ydot+10),5, "blue")
+    for i in range(50):
+        xdot=random.randint(1, 600)
+        ydot=random.randint(1, 1445)
+        canvas.draw_line((xdot, ydot), (xdot, ydot+10),5, "green")
+    #1st present
+    canvas.draw_circle((x+75, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((x+95, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((x+115, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_polygon([(x+50, 500), (x+50, 600),(x+150, 600),(x+150, 500)], 5, "red", "red" ) 
+    canvas.draw_polygon([(x+80, 500), (x+80, 600),(x+118, 600),(x+118, 500)], 5, "yellow", "yellow" )
+    #2nd present
+    canvas.draw_circle((180, y+485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((200, y+485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((220, y+485), 12, 12, "yellow", "yellow")
+    canvas.draw_polygon([(160, y+500), (160, y+600),(250, y+600),(250, y+500)], 5, "blue", "blue" ) 
+    canvas.draw_polygon([(185, y+500), (185, y+600),(218, y+600),(218, y+500)], 5, "yellow", "yellow" )
+    
+    #3rd present
+    canvas.draw_circle((380, y2+485), 12, 12, "yellow", "yellow") 
+    canvas.draw_circle((400, y2+485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((420, y2+485), 12, 12, "yellow", "yellow")
+    canvas.draw_polygon([(360, y2+500), (360, y2+600),(450, y2+600),(450, y2+500)], 5, "purple", "purple" ) 
+    canvas.draw_polygon([(385, y2+500), (385, y2+600),(418, y2+600),(418, y2+500)], 5, "yellow", "yellow" )
+    
+    #4th present
+    canvas.draw_circle((x2+480, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((x2+500, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_circle((x2+520, 485), 12, 12, "yellow", "yellow")
+    canvas.draw_polygon([(x2+460, 500), (x2+460, 600),(x2+550, 600),(x2+550, 500)], 5, "green", "green" ) 
+    canvas.draw_polygon([(x2+485, 500), (x2+485, 600),(x2+518, 600),(x2+518, 500)], 5, "yellow", "yellow" )
+    
+    #person
+    canvas.draw_line((guy+300,550), (guy+300, 450), 5, "black")
+    canvas.draw_line((guy+300,550), (guy+280, 600), 5, "black")
+    canvas.draw_line((guy+300,550), (guy+320, 600), 5, "black")
+    canvas.draw_line((guy+300,500), (guy+280, g), 5, "black")
+    canvas.draw_line((guy+300,500), (guy+320, g), 5, "black")
+    canvas.draw_circle((guy+300, 420), 30, 5, "black")
+    canvas.draw_circle((guy+290, 415), 7, 2, "black")
+    canvas.draw_circle((guy+310, 415), 7, 2, "black")
+    
+    #Animations
+    if x == 0:
+        x = x - 5
+    if y == 0:
+        y = y - 5
+    if y2 == 0:
+        y2 = y2 + 5
+    if x2 == 0:
+        x2 = x2 + 5
+    if guy == 0:
+        guy = guy - 5
+    if guy == 0:
+        g = g + 5
+
+    
+frame = simplegui.create_frame('Testing', 600, 600)
+frame.set_canvas_background("White")
+frame.set_draw_handler(draw_handler)
+frame.start()
